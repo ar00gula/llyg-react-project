@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import SettingsIcon from '../settingsicon.png';
+
 export default class NavBar extends Component {
 
     // seeDropdown = (event) => {
@@ -10,18 +12,18 @@ export default class NavBar extends Component {
         return (
             <div className="navbar">
                 <a href="#home">Home</a>
-                <a href="#news">News</a>
-                <div className="dropdown">
-                    <button className="dropbtn">Dropdown</button>
+                <a href="#news">Authors</a>
+                <div className="dropdown left">
+                    <button className="dropbtn gen">Books</button>
                     <div className="dropdown-content">
                     <a href="#a">Link 1</a>
                     <a href="#a">Link 2</a>
                     <a href="#a">Link 3</a>
                     </div>
                 </div>
-                <div className="dropdown right-justify">
-                    <button className="dropbtn settings-btn"></button>
-                    <div className="dropdown-content">
+                <div className="dropdown right">
+                    <button className="dropbtn settings"><img src={SettingsIcon} height="35px"/></button>
+                    <div className="dropdown-content-right">
                     <a href="#a">Settings</a>
                     <a href="#a">My Books</a>
                     <a href="#a">My Reviews</a>
