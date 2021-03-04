@@ -14,7 +14,6 @@ export default class BookPage extends Component {
             <div>
                 <h1>TITLE</h1>
                 <h2>AUTHOR</h2>
-
                 <img>COVER</img>
                 <p>SUMMARY</p>
                 <h4>AVG USER RATING</h4>
@@ -26,7 +25,6 @@ export default class BookPage extends Component {
                     <a>ADD USER TAG</a>
                     <a>REVIEW BOOK</a>
                 </div>
-
             </div>
         )
     }

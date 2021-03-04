@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import BookCard from './BookCard'
 
-export default class BookCard extends Component {
+export default class BookIndex extends Component {
 
     constructor() {
         super()
@@ -11,7 +12,7 @@ export default class BookCard extends Component {
 
     render() {
         return (
-            <div></div>
+            <div><BookCard /></div>
         )
     }
     
