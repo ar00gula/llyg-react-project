@@ -1,17 +1,11 @@
 class BooksController < ApplicationController
 
     def index
-        cards = {spring: Card.where(suite: 'hearts'), summer: Card.where(suite: 'diamonds')}
-        render json: shuffleDeck(cards)
+        books = Book.all
+        render json: books.to_json(:include => :author)
     end
 
 private
-
-    def shuffleDeck(object)
-        shuffledSpring = object[:spring].shuffle
-        shuffledSummer = object[:summer].shuffle
-        shuffledDeck = shuffledSpring + shuffledSummer
-    end
 
 end
 

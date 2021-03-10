@@ -1,30 +1,18 @@
-import React, { Component } from 'react'
-import CardFront from './CardFront'
-import CardBack from './CardBack'
+import React from 'react'
+// import CardFront from './CardFront'
+// import CardBack from './CardBack'
 
-export default class BookCard extends Component {
-
-    constructor() {
-        super()
-        this.state = {
-
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                <CardFront cover={this.props.cover} />
-                <CardBack title={this.props.title} author={this.props.author} />
-            </div>
-        )
-    }
-    
+const BookCard = (props) => {
+    return (
+        <div>
+            {props.books.map(book => (
+                <div>
+                    <h1>{book.title}</h1>
+                    <h2>{book.author.first_name} {book.author.last_name}</h2>
+                </div>
+            ))}
+        </div>
+    )
 }
 
-BookCard.defaultProps = {
-    title: 'Unknown',
-    author: 'Unknown',
-    genres: ['No Genre(s) Found'],
-    cover: 'default'
-  }
+export default BookCard
