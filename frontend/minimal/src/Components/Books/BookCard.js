@@ -9,7 +9,10 @@ const sorted = props.books.sort((a, b) => {
     let fa
     let fb
 
-    if (sortBy.length === 1) {
+    if (!sortBy) {
+        fa = a
+        fb = b
+    } else if (sortBy.length === 1) {
         fa = a[sortBy[0]]
         fb = b[sortBy[0]]
     } else {
