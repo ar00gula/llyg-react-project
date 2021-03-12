@@ -14,7 +14,7 @@ export default class BookPage extends Component {
             <div>
                 <h1>TITLE</h1>
                 <h2>AUTHOR</h2>
-                <img>COVER</img>
+                {/* <img>COVER</img> */}
                 <p>SUMMARY</p>
                 <h4>AVG USER RATING</h4>
                 <div className="tags">

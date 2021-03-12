@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BookCard from '../book-components/BookCard'
+import BookCard from '../Books/BookCard'
 
 class BookCardContainer extends Component {
     constructor() {
@@ -14,10 +14,9 @@ class BookCardContainer extends Component {
     }
     
     render() {
-        console.log(this.state.books)
         return (
             <div>
-                <BookCard books={this.state.books} />
+                <BookCard books={this.state.books} sortBy={this.props.sortBy}/>
             </div>
         )
     }
