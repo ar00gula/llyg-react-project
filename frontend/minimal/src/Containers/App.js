@@ -1,72 +1,29 @@
-import React, { Component } from 'react';
-import axios from 'axios'
+import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Home from '../Components/Users/Home'
 import Login from '../Components/Users/Login'
 import Signup from '../Components/Users/Signup'
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      isLoggedIn: false,
-      user: {}
-     };
-  }
-componentDidMount() {
-    this.loginStatus()
-  }
-loginStatus = () => {
-    axios.get('http://localhost:3001/logged_in', {withCredentials: true})
-    .then(response => {
-      if (response.data.logged_in) {
-        this.handleLogin(response)
-      } else {
-        this.handleLogout()
-      }
-    })
-    .catch(error => console.log('api errors:', error))
-  }
-handleLogin = (data) => {
-    this.setState({
-      isLoggedIn: true,
-      user: data.user
-    })
-  }
-handleLogout = () => {
-    this.setState({
-    isLoggedIn: false,
-    user: {}
-    })
-  }
-render() {
-    return (
-      <div>
-        <BrowserRouter>
-          <Switch>
-            <Route 
-              exact path='/' 
-              render={props => (
-              <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
-              )}
-            />
-            <Route 
-              exact path='/login' 
-              render={props => (
-              <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-              )}
-            />
-            <Route 
-              exact path='/signup' 
-              render={props => (
-              <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-              )}
-            />
-          </Switch>
-        </BrowserRouter>
-      </div>
-    );
-  }
+
+function App() {
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if(token){
+      fetch('http://localhost:3001/auto_login', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        setUser(data)
+      })
+    }
+  }, [])
+
+  
 }
+
 export default App;
 
 // import React, { Component } from 'react';
